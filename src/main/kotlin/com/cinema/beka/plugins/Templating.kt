@@ -5,7 +5,7 @@ import io.ktor.freemarker.*
 import io.ktor.application.*
 import io.ktor.routing.*
 
-fun Application.configureTemplating() {
+fun Application.templating() {
     install(FreeMarker) {
         templateLoader = ClassTemplateLoader(this::class.java.classLoader, "templates")
     }

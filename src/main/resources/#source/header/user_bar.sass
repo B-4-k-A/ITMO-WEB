@@ -1,0 +1,58 @@
+@import "../constant"
+
+.user_bar
+  display: inline-grid
+  grid-auto-flow: column
+  justify-content: end
+  column-gap: 15px
+
+
+
+  &__search_button
+    background: $white-10
+    min-width: 40px
+    max-width: 200px
+    height: 40px
+    display: grid
+    justify-content: start
+    align-items: center
+    column-gap: 10px
+    padding: 0 10px 0 10px
+    grid-auto-flow: column
+    width: 200px
+
+  &__icon
+      fill: $bgWhite
+      width: 20px
+      height: 20px
+
+  &__placeholder
+      color: $white-50
+      font-size: 14px
+
+  &__subscription
+    background-color: $mainColor
+    color: $white
+    display: inline-grid
+    justify-content: center
+    align-items: center
+    font-size: 13px
+    padding: 0 20px
+    text-decoration: none
+    font-weight: 600
+    text-transform: uppercase
+
+  &__sign
+    text-transform: uppercase
+    text-decoration: none
+    display: inline-grid
+    justify-content: center
+    align-items: center
+    color: $white
+    background-color: $bgSign
+    font-family: $font-primary
+    font-size: 13px
+    font-weight: 600
+    letter-spacing: 0.86px
+    width: 120px
+

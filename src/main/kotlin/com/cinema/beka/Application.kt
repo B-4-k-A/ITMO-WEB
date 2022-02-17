@@ -7,9 +7,9 @@ import io.ktor.application.*
 import io.ktor.features.*
 
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
-        configureRouting()
-        configureTemplating()
-        install(CallLogging)
+    embeddedServer(Netty, port = 8080, host = "0.0.0.0",
+        watchPaths = listOf("classes", "resources" + "/source", "resources" + "/template")) {
+        routing()
+        templating()
     }.start(wait = true)
 }
