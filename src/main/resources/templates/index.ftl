@@ -2,5 +2,5 @@
 <@common.page "Main page">
 <#--<@common.header>-->
 <#--</@common.header>-->
-    <div class="h1">Hello, World!</div>
+    <div class="h1">How are you?</div>
 </@common.page>
