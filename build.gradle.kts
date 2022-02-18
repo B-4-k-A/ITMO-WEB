@@ -14,12 +14,16 @@ application {
     mainClass.set("com.cinema.beka.ApplicationKt")
 }
 
-//tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-//    kotlinOptions {
-//        jvmTarget = "1.6"
-//    }
-//}
+val javaVersion = JavaVersion.VERSION_1_8.toString()
 
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions.jvmTarget = javaVersion
+}
+
+tasks.withType<JavaCompile> {
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+}
 
 
 tasks.jar {
@@ -38,6 +42,10 @@ tasks.jar {
         "Main-Class" to "com.cinema.beka.ApplicationKt"
         )
     }
+}
+
+tasks.create("stage") {
+    dependsOn("installDist")
 }
 
 repositories {

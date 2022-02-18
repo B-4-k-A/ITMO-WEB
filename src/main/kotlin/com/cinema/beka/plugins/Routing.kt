@@ -8,7 +8,7 @@ fun Application.configureRouting() {
 
     routing {
 
-        get("/h") {
+        get("/hello") {
             call.respondText("Hello, World!")
         }
     }
