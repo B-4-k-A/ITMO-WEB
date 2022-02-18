@@ -16,29 +16,38 @@ application {
     mainClass.set("com.cinema.beka.ApplicationKt")
 }
 
+val javaVersion = JavaVersion.VERSION_1_8.toString()
 
-//tasks.jar {
-//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-//    from (
-//        configurations.runtimeClasspath.get().map {
-//            if (it.isDirectory)
-//                it
-//            else
-//                zipTree(it)
-//        }
-//    )
-//
-//    manifest {
-//        attributes(
-//        "Main-Class" to "com.cinema.beka.ApplicationKt"
-//        )
-//    }
-//}
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions.jvmTarget = javaVersion
+}
+
+tasks.withType<JavaCompile> {
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+}
 
 
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
+tasks.jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE 
+    from (
+        configurations.runtimeClasspath.get().map {
+            if (it.isDirectory)
+                it
+            else
+                zipTree(it)
+        }
+    )
+
+    manifest {
+        attributes(
+        "Main-Class" to "com.cinema.beka.ApplicationKt"
+        )
+    }
+}
+
+tasks.create("stage") {
+    dependsOn("installDist")
 }
 
 repositories {

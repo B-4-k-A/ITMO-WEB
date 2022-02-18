@@ -13,7 +13,7 @@ fun Application.routing() {
             resources("source")
         }
 
-        get("/h") {
+        get("/hello") {
             call.respondText("Hello, World!")
         }
     }

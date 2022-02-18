@@ -10,10 +10,5 @@ import io.ktor.application.*
 class ApplicationTest {
     @Test
     fun testRoot() {
-        withTestApplication({ routing() }) {
-            handleRequest(HttpMethod.Get, "localhost:8080/").apply {
-//                assertEquals(HttpStatusCode.OK, response.status())
-            }
-        }
     }
 }

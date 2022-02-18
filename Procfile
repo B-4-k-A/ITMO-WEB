@@ -1,0 +1,1 @@
+web: build/install/com.cinema.beka.cinema-website/bin/com.cinema.beka.cinema-website
