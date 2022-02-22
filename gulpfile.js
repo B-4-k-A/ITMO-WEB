@@ -1,45 +1,25 @@
-const {src, dest, watch} = require('gulp');
-const compileSass = require('gulp-sass')(require('node-sass'));
-const minifyCss = require('gulp-clean-css');
-const sourceMaps = require('gulp-sourcemaps');
-const concat = require('gulp-concat');
+import gulp from 'gulp';
 
-// compileSass.compiler = require('node-sass');
+import {path} from "./gulp/config/path.js";
 
-const _dev = {
-    src: './src/main/resources/#source/',
-    dest: './src/main/resources/source/css/'
-};
+global.app = {
+    path: path,
+    gulp: gulp,
 
-const _pages = {
-    index: {
-        name: 'index.css',
-        blocks: ['header']
-    }
 }
 
+import {copy} from "./gulp/tasks/copy.js";
+import {reset} from "./gulp/tasks/reset.js";
+import {html} from "./gulp/tasks/html.js";
 
-const bundle = (page) => {
-    const pageInfo = _pages[page]
-    let blocksPath = pageInfo.blocks.map(
-        it => _dev.src + it + '/*.sass'
-    );
-    return src(blocksPath)
-        .pipe(compileSass().on('error', compileSass.logError))
-        .pipe(sourceMaps.init())
-        .pipe(minifyCss())
-        .pipe(sourceMaps.write())
-        .pipe(concat(pageInfo.name))
-        .pipe(dest(_dev.dest));
-};
 
-const bundleIndex = () => {
-    return bundle('index')
+function watcher() {
+    gulp.watch(path.watch.files, copy);
+    gulp.watch(path.watch.html, html);
 }
 
-const watchIndex = () => {
-    watch(_dev.src, bundleIndex);
-};
+const mainTasks = gulp.parallel(copy, html);
 
-exports.bundleIndex = bundleIndex;
-exports.watchIndex = watchIndex;
+const dev = gulp.series(reset, mainTasks, watcher);
+
+gulp.task('default', dev);

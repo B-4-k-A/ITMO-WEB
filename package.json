@@ -1,10 +1,25 @@
 {
+  "name": "itmo-web",
+  "version": "1.0.0",
+  "description": "* Main page schemas\r ![main_page_schema](/Schemas/Main-page-schema.jpg)",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/B-4-k-A/ITMO-WEB.git"
+  },
+  "author": "BekA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/B-4-k-A/ITMO-WEB/issues"
+  },
+  "homepage": "https://github.com/B-4-k-A/ITMO-WEB#readme",
   "devDependencies": {
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "node-sass": "^7.0.1"
+    "gulp-freemarker": "^0.1.5"
   }
 }
