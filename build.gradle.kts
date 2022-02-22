@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val ktor_version: String by project
-val kotlin_version: String by project
-val exposed_version: String by project
-val logback_version: String by project
+val ktorVersion: String by project
+val kotlinVersion: String by project
+val exposedVersion: String by project
+val logbackVersion: String by project
 
 plugins {
     application
@@ -18,7 +18,7 @@ application {
 
 val javaVersion = JavaVersion.VERSION_1_8.toString()
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = javaVersion
 }
 
@@ -28,23 +28,23 @@ tasks.withType<JavaCompile> {
 }
 
 
-tasks.jar {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE 
-    from (
-        configurations.runtimeClasspath.get().map {
-            if (it.isDirectory)
-                it
-            else
-                zipTree(it)
-        }
-    )
-
-    manifest {
-        attributes(
-        "Main-Class" to "com.cinema.beka.ApplicationKt"
-        )
-    }
-}
+//tasks.jar {
+//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+//    from (
+//        configurations.runtimeClasspath.get().map {
+//            if (it.isDirectory)
+//                it
+//            else
+//                zipTree(it)
+//        }
+//    )
+//
+//    manifest {
+//        attributes(
+//        "Main-Class" to "com.cinema.beka.ApplicationKt"
+//        )
+//    }
+//}
 
 tasks.create("stage") {
     dependsOn("installDist")
@@ -55,14 +55,14 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-freemarker:$ktor_version")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
-    implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
-    implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
-    implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("io.ktor:ktor-server-tests:$ktor_version")
-    testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlin_version")
+    implementation("io.ktor:ktor-server-core:$ktorVersion")
+    implementation("io.ktor:ktor-freemarker:$ktorVersion")
+    implementation("io.ktor:ktor-server-netty:$ktorVersion")
+    implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
     implementation(kotlin("stdlib-jdk8"))
 }

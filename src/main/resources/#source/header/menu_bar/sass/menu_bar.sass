@@ -1,0 +1,64 @@
+@import '../../../constant'
+
+.menu_bar
+  display: grid
+  grid-auto-flow: column
+  align-items: center
+
+
+  &__logo
+    display: inline-block
+    width: 145px
+
+.menu_nav
+  display: grid
+  grid-auto-flow: column
+  align-items: center
+  justify-content: space-between
+  column-gap: 30px
+
+  &__item
+    font-family: $font-primary
+    color: $white
+    font-size: 14px
+    font-weight: 700
+    letter-spacing: .93px
+    text-transform: uppercase
+    text-decoration: none
+    transition: color 0.3s ease
+
+    &:last-of-type:after
+      background-color: $red
+      border-radius: 50%
+      content: ""
+      display: inline-block
+      vertical-align: middle
+      height: 6px
+      width: 6px
+
+
+    //&:before
+    //  bottom: -10px
+    //  content: ""
+    //  display:  block
+    //  height: 2px
+    //  opacity: 0
+    //  transaction: opacity 0.3s ease
+    //
+    //&:active
+    //  background-color: $mainColor
+
+
+
+@media(max-width: 1024px)
+  .menu_nav
+    display: none
+
+
+@media(max-width: 599px)
+  .menu_bar
+
+    &__logo
+      width: 100px
+
+

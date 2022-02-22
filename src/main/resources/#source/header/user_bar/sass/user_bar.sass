@@ -1,34 +1,36 @@
-@import "../constant"
+@import "../../../constant"
 
 .user_bar
   display: inline-grid
   grid-auto-flow: column
   justify-content: end
   column-gap: 15px
+  align-items: center
 
 
 
   &__search_button
     background: $white-10
-    min-width: 40px
-    max-width: 200px
-    height: 40px
+    min-width: 4px
+    max-width: 182px
     display: grid
+    height: 100%
     justify-content: start
     align-items: center
     column-gap: 10px
-    padding: 0 10px 0 10px
+    padding: 0 8px
     grid-auto-flow: column
-    width: 200px
+    width: 182px
 
-  &__icon
-      fill: $bgWhite
-      width: 20px
-      height: 20px
+  &__search_icon
+    fill: $bgWhite
+    width: 20px
+    height: 20px
 
   &__placeholder
-      color: $white-50
-      font-size: 14px
+    color: $white-50
+    font-size: 14px
+    font-family: $font-primary
 
   &__subscription
     background-color: $mainColor
@@ -41,6 +43,7 @@
     text-decoration: none
     font-weight: 600
     text-transform: uppercase
+    height: 100%
 
   &__sign
     text-transform: uppercase
@@ -53,6 +56,29 @@
     font-family: $font-primary
     font-size: 13px
     font-weight: 600
+    height: 100%
     letter-spacing: 0.86px
     width: 120px
 
+@media(max-width: 1024px)
+  .user_bar__sign
+    display: none
+
+@media(max-width: 599px)
+  .user_bar
+
+    &__placeholder
+      display: none
+
+    &__search_button
+      width: 19px
+      height: 37px
+      justify-content: center
+
+    &__search_icon
+      width: 18px
+      height: 18px
+
+
+    &__subscription
+      padding: 0 12px

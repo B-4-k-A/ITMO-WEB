@@ -10,6 +10,12 @@ const _dev = {
     destCss: './src/main/resources/source/css/'
 };
 
+const _blocks = {
+    common: {
+        body_container: this + '/body_container'
+    }
+}
+
 const _pages = {
     index: {
         name: 'index.css',
@@ -31,6 +37,10 @@ const bundle = (page) => {
         .pipe(concat(pageInfo.name))
         .pipe(dest(_dev.destCss));
 };
+
+const foo = () = {
+
+}
 
 const bundleIndex = () => {
     return bundle('index')
