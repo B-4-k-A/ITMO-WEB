@@ -15,10 +15,10 @@ import {html} from "./gulp/tasks/html.js";
 
 function watcher() {
     gulp.watch(path.watch.files, copy);
-    gulp.watch(path.watch.html, html);
+    // gulp.watch(path.watch.html, html);
 }
 
-const mainTasks = gulp.parallel(copy, html);
+const mainTasks = gulp.parallel(copy/*, html*/);
 
 const dev = gulp.series(reset, mainTasks, watcher);
 
