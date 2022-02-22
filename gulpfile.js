@@ -4,17 +4,22 @@ const minifyCss = require('gulp-clean-css');
 const sourceMaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
 
-// compileSass.compiler = require('node-sass');
 
 const _dev = {
     src: './src/main/resources/#source/',
-    dest: './src/main/resources/source/css/'
+    destCss: './src/main/resources/source/css/'
 };
+
+const _blocks = {
+    common: {
+        body_container: this + '/body_container'
+    }
+}
 
 const _pages = {
     index: {
         name: 'index.css',
-        blocks: ['header']
+        blocks: ['common', 'header', 'main', 'footer']
     }
 }
 
@@ -27,11 +32,15 @@ const bundle = (page) => {
     return src(blocksPath)
         .pipe(compileSass().on('error', compileSass.logError))
         .pipe(sourceMaps.init())
-        .pipe(minifyCss())
+        // .pipe(minifyCss())
         .pipe(sourceMaps.write())
         .pipe(concat(pageInfo.name))
-        .pipe(dest(_dev.dest));
+        .pipe(dest(_dev.destCss));
 };
+
+const foo = () = {
+
+}
 
 const bundleIndex = () => {
     return bundle('index')

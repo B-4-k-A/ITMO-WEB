@@ -1,0 +1,28 @@
+.header_view_container
+  grid-area: header
+  display: grid
+  grid-template-columns: minmax(1em, 1fr) minmax(320px, 1280px) minmax(1em, 1fr)
+
+
+.header_container
+  display: grid
+  grid-auto-flow: column
+  grid-area: 1 / 2
+  margin: auto 0
+  height: 40px
+
+
+
+@media(max-width: 599px)
+  .header_container
+    height: 37px
+
+
+
+
+
+
+
+
+
+
