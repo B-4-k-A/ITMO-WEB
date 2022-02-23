@@ -1,6 +1,4 @@
 import del from 'del';
 export const reset = () => {
-    return del(app.path.clean) {
-        clean: true,
-    }
+    return del(app.path.clean, {force: true})
 }
