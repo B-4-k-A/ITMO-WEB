@@ -19,7 +19,7 @@ export const sass = () => {
         })
       )
     )
-    .pipe(app.plugins.replace(/@img\//g, "img/"))
+    .pipe(app.plugins.replace(/@img\//g, "../img/"))
     .pipe(
       sassCompile({
         outputStyle: "expanded",

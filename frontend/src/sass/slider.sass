@@ -1,0 +1,124 @@
+@import 'special/constant'
+
+.slick-slider
+  user-select: none
+  touch-action: pan-y
+  
+//   &.slick-initialized
+  
+//   &.slick-dotted
+
+.slick-list
+  overflow: visible
+  position: relative
+  margin: 0 -15px
+
+.slick-track
+  grid-auto-flow: column
+  position: relative
+  display: grid
+  align-items: center
+  overflow: hidden
+  // column-gap: 20px
+//   left: 0
+//   margin: 0 auto
+//   position: relative
+//   top: 0
+  
+.slick-slide
+  margin: 0 15px
+
+  &.slick-current
+    opacity: 1
+
+//   &.slick-center
+//   &.slick-cloned
+
+// .slick-arrow
+
+//   &.slick-prev
+
+//   &.slick-next
+
+//   &.slick-disabled
+
+
+// .slider
+
+  // & .slick-arrow
+    // font-size: 0
+
+.slider-container
+  max-width: 1280px
+
+.slider
+  position: relative
+  min-width: 0
+  width: 100%
+
+  & .slick-arrow
+    
+    position: absolute
+    top: 50%
+    z-index: 10
+    font-size: 0
+    margin-top: -25px
+    width: 70px
+    height: 70px
+    border: 0
+    opacity: .6
+    
+    &.slick-prev
+      left: -10
+      background: url('../img/icons/left-white.svg') 0 0 / 100% no-repeat
+    &.slick-next
+      right: 0
+      background: url('@img/icons/right-white.svg') 0 0 / 100% no-repeat
+
+  &__item
+    height: 506px
+    width: auto 
+    overflow: hidden
+    position: relative
+    display: grid
+    // align-items: end
+    padding: 20px 50px
+    text-align: center
+    border-radius: 8px
+    opacity: .6
+
+
+    & img
+      object-fit: cover
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+
+  & .slick-dots
+    display: grid
+    grid-auto-flow: column
+    margin-top: 20px
+    column-gap: 20px
+    align-items: center
+    justify-content: center
+
+    & li
+      list-style: none
+
+    & .slick-active 
+      & button
+        opacity: .8
+        height: 6px
+        width: 6px
+
+    & button
+      font-size: 0
+      height: 5px
+      width: 5px
+      border-radius: 50%
+      background-color: $white
+      border: 0
+      padding: 0
+      opacity: .3
+      transition: all .3s ease

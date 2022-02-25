@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="RU">
-    @@include('html/head.html', {
-        "title": "More.tv"
-    })
-<body>
-    @@include('html/header.html', {})
-    @@include('html/main.html', {})
+  @@include('html/head.html', { "title": "More.tv", })
+  <body>
+    @@include('html/header.html', {}) 
+    @@include('html/main.html', { "includeBS": true }) 
     @@include('html/footer.html', {})
-</body>
-<script src="@js/app.min.js"></script>
+    @@include('html/sidebar.html', {})
+    <script src="//code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="@file/slick.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".slider").slick({
+            adaptiveHeight: true,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            pauseOnFocus: true,
+            pauseOnHover: true,
+            centerMode: true,
+            dots: true,
+
+
+        });
+      });
+    </script>
+    <script src="@js/app.min.js"></script>
+  </body>
 </html>

@@ -21,8 +21,6 @@ import {sass} from "./gulp/tasks/sass.js";
 import {js} from "./gulp/tasks/js.js";
 import {images} from "./gulp/tasks/images.js";
 
-export {images} 
-
 function watcher() {
     gulp.watch(path.watch.files, copy);
     gulp.watch(path.watch.html, html);
@@ -36,6 +34,7 @@ const mainTasks = gulp.parallel(copy, html, sass, js, images);
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 
 const build = gulp.series(reset, mainTasks);
+
 
 export { dev }
 export { build }
