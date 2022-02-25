@@ -28,7 +28,7 @@ export const html = () => {
     .pipe(app.plugins.if(app.isBuild, app.plugins.replace(/@js\//g, "static/js/")))
     .pipe(app.plugins.if(app.isDev, app.plugins.replace(/@file\//g, "files/")))
     .pipe(app.plugins.if(app.isBuild, app.plugins.replace(/@file\//g, "static/files/")))
-    .pipe(app.plugins.if(app.isBuild, webpHtmlNosvg()))
+    // .pipe(app.plugins.if(app.isBuild, webpHtmlNosvg()))
     .pipe(
       app.plugins.if(
         app.isBuild,
