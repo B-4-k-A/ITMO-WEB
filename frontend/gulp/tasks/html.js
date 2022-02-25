@@ -20,10 +20,14 @@ export const html = () => {
       )
     )
     .pipe(fileInclude())
-    .pipe(app.plugins.replace(/@img\//g, "img/"))
-    .pipe(app.plugins.replace(/@sass\//g, "css/"))
-    .pipe(app.plugins.replace(/@js\//g, "js/"))
-    .pipe(app.plugins.replace(/@file\//g, "files/"))
+    .pipe(app.plugins.if(app.isDev, app.plugins.replace(/@img\//g, "img/")))
+    .pipe(app.plugins.if(app.isBuild, app.plugins.replace(/@img\//g, "static/img/")))
+    .pipe(app.plugins.if(app.isDev, app.plugins.replace(/@sass\//g, "css/")))
+    .pipe(app.plugins.if(app.isBuild, app.plugins.replace(/@sass\//g, "static/css/")))
+    .pipe(app.plugins.if(app.isDev, app.plugins.replace(/@js\//g, "js/")))
+    .pipe(app.plugins.if(app.isBuild, app.plugins.replace(/@js\//g, "static/js/")))
+    .pipe(app.plugins.if(app.isDev, app.plugins.replace(/@file\//g, "files/")))
+    .pipe(app.plugins.if(app.isBuild, app.plugins.replace(/@file\//g, "static/files/")))
     .pipe(app.plugins.if(app.isBuild, webpHtmlNosvg()))
     .pipe(
       app.plugins.if(

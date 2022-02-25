@@ -10,7 +10,7 @@ fun Application.routing() {
     routing {
 
         static("/static") {
-            resources("source")
+            resources("src")
         }
 
         get("/hello") {
