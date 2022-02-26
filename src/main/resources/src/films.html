@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="RU">
-    <head>
+  <head>
     <meta charset="UTF-8">
     <title>More.tv</title>
-    <link rel="icon" href="static/img/icons/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" type="text/css" href="static/css/style.min.css?_v=20220225210819"/>
+    <link rel="icon" href="img/icons/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="css/style.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap&_v=20220225210819" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-<body>
+  <body>
     <header class="header">
     <div class="header_container">
         <div class="menu_bar">
@@ -26,18 +26,15 @@
             </a>
             <nav class="menu_nav">
                 <a href="/" class="menu_nav__item nav_text">
-                    Сериалы
+                    Главная
                 </a>
-                <a href="/" class="menu_nav__item nav_text">
+                <a href="/films.html" class="menu_nav__item nav_text">
                     Фильмы
                 </a>
-                <a href="/" class="menu_nav__item nav_text">
-                    Шоу
+                <a href="/liked.html" class="menu_nav__item nav_text">
+                    Избранное
                 </a>
-                <a href="/" class="menu_nav__item nav_text">
-                    Детям
-                </a>
-                <a href="/" class="menu_nav__item nav_text">
+                <a href="/TV.html" class="menu_nav__item nav_text">
                     ТВ
                 </a>
             </nav>
@@ -59,12 +56,13 @@
             </a>
         </div>
     </div>
-</header>
-    <main class="main">
-   
+</header> <main>
+  <div class="fetch">
+    <span id="name" class="fetch__info"> </span>
+    <button id="new_profile" class="fetch__button">NEW</button>
+  </div>
 </main>
-
-    <footer class="footer">
+ <footer class="footer">
   <div class="footer_pretty">
     <div class="footer__container">
       <div class="soc_icons">
@@ -200,14 +198,30 @@
   </div>
 </footer>
 
+  </body>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="files/slick.min.js"></script>
+  <script>
+      const getNewIdentity = async () => {
+        const url = "https://randomuser.me/api";
+        const el = document.getElementById("name");
 
-</body>
-<script src="https://code.jquery.com/jquery-3.5.0.js?_v=20220225210819"></script>
-<script src="static/files/slick.min.js?_v=20220225210819"></script>
-<script> 
-     $(document).ready(function (){ 
-         $('.slider').slick(); 
-     })
-</script>
-<script src="static/js/app.min.js?_v=20220225210819"></script>
+        const response = await fetch(url);
+        const data = await response.json();
+        const user = data.results[0].name;
+        const adr = data.results[0].location;
+        const email = data.results[0].email;
+        el.innerText = `${user.first} ${user.last} ${adr.city} ${email}`;
+      };
+    const btn = document.querySelector(".fetch__button");
+    btn.addEventListener("click", () => {
+        getNewIdentity();
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $(".slider").slick();
+    });
+  </script>
+  <script src="js/app.min.js"></script>
 </html>
