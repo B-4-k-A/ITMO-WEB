@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="RU">
+  @@include('html/head.html', { "title": "More.tv" })
+  <body>
+    @@include('html/header.html', {}) @@include('html/fetch.html', {}) @@include('html/footer.html', {})
+  </body>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="@file/slick.min.js"></script>
+  <script>
+      const getNewIdentity = async () => {
+        const url = "https://randomuser.me/api";
+        const el = document.getElementById("name");
+
+        const response = await fetch(url);
+        const data = await response.json();
+        const user = data.results[0].name;
+        const adr = data.results[0].location;
+        const email = data.results[0].email;
+        el.innerText = `${user.first} ${user.last} ${adr.city} ${email}`;
+      };
+    const btn = document.querySelector(".fetch__button");
+    btn.addEventListener("click", () => {
+        getNewIdentity();
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $(".slider").slick();
+    });
+  </script>
+  <script src="@js/app.min.js"></script>
+</html>
