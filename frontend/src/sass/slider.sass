@@ -1,0 +1,132 @@
+@import 'special/constant'
+
+.slick-slider
+  user-select: none
+  touch-action: pan-y
+  
+//   &.slick-initialized
+  
+//   &.slick-dotted
+
+.slick-list
+  overflow: visible
+  position: relative
+  margin: 0 -15px
+
+.slick-track
+  grid-auto-flow: column
+  position: relative
+  display: grid
+  align-items: center
+  overflow: hidden
+  
+.slick-slide
+  margin: 0 15px
+
+  &.slick-current
+    opacity: 1
+    transition: all .3s ease
+
+//   &.slick-center
+//   &.slick-cloned
+
+// .slick-arrow
+
+//   &.slick-prev
+
+//   &.slick-next
+
+//   &.slick-disabled
+
+
+.slider-container
+  max-width: 1280px
+
+.slider
+  position: relative
+  min-width: 0
+  width: 100%
+
+  & .slick-arrow
+    
+    position: absolute
+    top: 50%
+    z-index: 10
+    font-size: 0
+    margin-top: -25px
+    width: 70px
+    height: 70px
+    border: 0
+    opacity: .6
+    
+    &.slick-prev
+      left: -10
+      background: url('../img/icons/left-white.svg') 0 0 / 100% no-repeat
+    &.slick-next
+      right: 0
+      background: url('@img/icons/right-white.svg') 0 0 / 100% no-repeat
+
+  &__item
+    height: 506px
+    width: auto 
+    overflow: hidden
+    position: relative
+    display: grid
+    // align-items: end
+    padding: 20px 50px
+    text-align: center
+    border-radius: 8px
+    opacity: .6
+    transition: all .3s ease
+
+
+    &_img
+      object-fit: cover
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      left: 0
+
+  & .slick-dots
+    grid-auto-flow: column
+    margin-top: 20px
+    column-gap: 20px
+    align-items: center
+    justify-content: center
+    display: grid
+      
+    & li
+      list-style: none
+
+    & .slick-active 
+      & button
+        opacity: .8
+        height: 6px
+        width: 6px
+
+    & button
+      font-size: 0
+      height: 5px
+      width: 5px
+      border-radius: 50%
+      background-color: $white
+      border: 0
+      padding: 0
+      opacity: .3
+
+.like-button
+  z-index: 10
+  background-color: #fff
+  width: 50px
+  height: 50px
+  position: absolute
+  right: 30px 
+  bottom: 30px
+  border: 0
+
+.like
+  background: url("@img/slayder/B-slider/plus.png") 0 0 / 100% no-repeat
+
+.unlike
+  background: url("@img/slayder/B-slider/minus.png") 0 0 / 100% no-repeat

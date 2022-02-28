@@ -12,4 +12,8 @@ export function isWebp() {
         let className = support === true ? 'webp' : 'no-webp';
         document.documentElement.classList.add(className);
     });
+};
+
+export function $(obj) {
+    return new jQuery(obj)
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="RU">
+    @@include('html/head.html', {
+        "title": "More.tv"
+    })
+<body>
+    @@include('html/header.html', {})
+    @@include('html/main.html', {
+        "includeBS": false
+    })
+    @@include('html/footer.html', {})
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="@file/slick.min.js"></script>
+<script> 
+     $(document).ready(function (){ 
+         $('.slider').slick(); 
+     })
+</script>
+<script src="@js/app.min.js"></script>
+</html>
